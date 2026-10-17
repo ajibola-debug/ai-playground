@@ -25,6 +25,3 @@ cv.imshow("Merged!", merge)
 cv.imwrite("merged.jpg", merge)
 
 cv.waitKey(0)
-
-#plt.imshow(rgb)
-#plt.show()
