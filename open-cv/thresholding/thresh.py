@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-image = cv.imread('arsenal/Martin_Odegaard_Arsenal_2023-24_(2).jpg')
+image = cv.imread('.../Martin_Odegaard_Arsenal_2023-24_(2).jpg')
 cv.imshow("Image", image)
 cv.imwrite("original_image.jpg", image)
 
