@@ -21,8 +21,4 @@ adapt = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C , cv.THRES
 cv.imshow("Adative thresh", adapt)
 cv.imwrite('adaptive.jpg', adapt)
 
-bbitwise = cv.bitwise_and(thresh, thresh_inv)
-cv.imshow("Bitting", bbitwise)
-
-
 cv.waitKey(0)
