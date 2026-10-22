@@ -7,7 +7,7 @@ cv.imwrite("original_image.jpg", image)
 
 gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 cv.imshow("gray 🙄🙄🙄", gray)
-cv.imwrite('grayed.jpg', gray)
+cv.imwrite('grayed.jpg', gray) 
 
 lap = cv.Laplacian(gray, cv.CV_64F)
 lap = np.uint8(np.absolute(lap))
