@@ -2,7 +2,7 @@ import cv2 as cv
 
 img = cv.imread('.../Martin Odegaard Arsenal 2023-24 (8).jpg')
 
-cv.imshow("Image", img)
+cv.imshow("Image", img) 
 
 (height, width) = img.shape[:2]
 
