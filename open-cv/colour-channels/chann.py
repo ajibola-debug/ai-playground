@@ -11,7 +11,7 @@ b,g,r = cv.split(image)
 cv.imshow("Blue", b)
 cv.imwrite("blue.jpg", b)
 cv.imshow("Green", g)
-cv.imwrite("green.jpg", g)
+cv.imwrite("green.jpg", g) 
 cv.imshow("Red", r)
 cv.imwrite("red.jpg", r)
 
