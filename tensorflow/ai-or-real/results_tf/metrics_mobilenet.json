@@ -1,0 +1,34 @@
+{
+  "original": {
+    "accuracy": 0.8749,
+    "precision_fake": 0.8584815452285331,
+    "recall_fake": 0.8978,
+    "f1_fake": 0.8777006550004888,
+    "roc_auc": 0.9477426000000001,
+    "n_images": 20000
+  },
+  "jpeg_q90": {
+    "accuracy": 0.8718,
+    "precision_fake": 0.8626609442060086,
+    "recall_fake": 0.8844,
+    "f1_fake": 0.8733952202251629,
+    "roc_auc": 0.9458584950000002,
+    "n_images": 20000
+  },
+  "jpeg_q70": {
+    "accuracy": 0.868,
+    "precision_fake": 0.8325501536237123,
+    "recall_fake": 0.9213,
+    "f1_fake": 0.8746795784676731,
+    "roc_auc": 0.945796035,
+    "n_images": 20000
+  },
+  "jpeg_q50": {
+    "accuracy": 0.83915,
+    "precision_fake": 0.8071732632913685,
+    "recall_fake": 0.8912,
+    "f1_fake": 0.8471080271850198,
+    "roc_auc": 0.9211710999999999,
+    "n_images": 20000
+  }
+}
