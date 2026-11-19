@@ -1,0 +1,11 @@
+# Used by Streamlit Community Cloud to install the app's packages.
+# tensorflow-cpu is the same library without GPU support: smaller and faster to install on the server.
+# Match the version to the one you trained with (run `pip show tensorflow` on your laptop),
+# e.g. tensorflow-cpu==2.17.0, so the saved .keras model loads without problems.
+tensorflow-cpu>=2.16
+streamlit>=1.35
+numpy
+pandas
+pillow
+matplotlib
+scikit-learn
