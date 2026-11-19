@@ -22,7 +22,7 @@ from tensorflow import keras
 
 # ---------------------------------------------------------------- settings you may edit
 
-GITHUB_URL = "https://github.com/ajibola-debug/real-or-ai"
+GITHUB_URL = "https://github.com/ajibola-debug/ai-playground/tensorflow/real-or-ai"
 AUTHOR = "Ajibola Akinbode"
 AUTHOR_URL = "https://github.com/ajibola-debug"
 
