@@ -22,8 +22,8 @@ from tensorflow import keras
 
 # ---------------------------------------------------------------- settings you may edit
 
-GITHUB_URL = "https://github.com/ajibola-debug/ai-playground/tensorflow/real-or-ai"
-AUTHOR = "Ajibola Akinbode"
+GITHUB_URL = "https://github.com/ajibola-debug/ai-playground/tensorflow/ai-or-real"
+AUTHOR = "Ajibolaaa 🌚🫩🫠🤓"
 AUTHOR_URL = "https://github.com/ajibola-debug"
 
 # Every path is relative to this file, so the app works wherever it is started from
