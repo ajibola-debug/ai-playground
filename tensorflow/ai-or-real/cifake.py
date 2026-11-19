@@ -1,27 +1,3 @@
-"""Real vs AI-generated image detector on CIFAKE, in TensorFlow/Keras. One file.
-
-Folder layout it expects (CIFAKE as it comes):
-    cifake/train/REAL   cifake/train/FAKE
-    cifake/test/REAL    cifake/test/FAKE
-
-Install:
-    pip install tensorflow numpy scikit-learn matplotlib
-
-Run (trains, then evaluates on the test set):
-    python cifake_tensorflow.py --data-dir ~/Desktop/cifake
-    python cifake_tensorflow.py --data-dir ~/Desktop/cifake --backbone mobilenet --epochs 3
-    python cifake_tensorflow.py --data-dir ~/Desktop/cifake --epochs 1 --subset 4000   # quick check
-
-Models:
-    cnn        small CNN trained from scratch at 32x32. Fast on a laptop CPU.
-    mobilenet  MobileNetV2 pretrained on ImageNet, fine-tuned at 96x96. Slower; better with a GPU.
-
-Outputs:
-    models_tf/best_<backbone>.keras         trained model
-    results_tf/metrics_<backbone>.json      accuracy, precision, recall, F1, ROC-AUC (+ JPEG tests)
-    results_tf/confusion_matrix_<backbone>.png
-    results_tf/history_<backbone>.json      loss/accuracy per epoch
-"""
 import argparse
 import json
 import os
