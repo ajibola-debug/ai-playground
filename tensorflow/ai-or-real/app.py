@@ -1,3 +1,11 @@
+"""Real or AI? A Streamlit app for the CIFAKE detectors (Small CNN and MobileNetV2).
+
+Run from the folder that holds models_tf/ and results_tf/:
+    streamlit run app_tensorflow.py
+
+Optional: put a few example images in samples/REAL and samples/FAKE so visitors can try the
+app without their own images. If a cifake/test folder is present, it is used too.
+"""
 import io
 import json
 import random
@@ -10,26 +18,30 @@ import pandas as pd
 import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps, UnidentifiedImageError
-import keras
+from tensorflow import keras
 
 # ---------------------------------------------------------------- settings you may edit
 
-GITHUB_URL = "https://github.com/ajibola-debug/ai-playground/tensorflow/ai-or-real"
-AUTHOR = "Ajibolaaaa"
+GITHUB_URL = "https://github.com/ajibola-debug/real-or-ai"
+AUTHOR = "Ajibola Akinbode"
 AUTHOR_URL = "https://github.com/ajibola-debug"
+
+# Every path is relative to this file, so the app works wherever it is started from
+# (including Streamlit Cloud, and repos where the app sits in a subfolder).
+HERE = Path(__file__).resolve().parent
 
 IMG = 32         # the models were trained on 32x32 images
 DISPLAY = 320    # small images are shown enlarged to this size
 IMAGE_TYPES = ["jpg", "jpeg", "png", "webp", "bmp"]
 MODELS = {
-    "Small CNN": {"key": "cnn", "path": Path("models_tf/best_cnn.keras"),
+    "Small CNN": {"key": "cnn", "path": HERE / "models_tf" / "best_cnn.keras",
                   "about": "Trained from scratch on 32×32 images. Fast, and the baseline."},
-    "MobileNetV2": {"key": "mobilenet", "path": Path("models_tf/best_mobilenet.keras"),
+    "MobileNetV2": {"key": "mobilenet", "path": HERE / "models_tf" / "best_mobilenet.keras",
                     "about": "Pretrained on ImageNet, then fine-tuned in two phases "
                              "(head first, then the whole network). Usually more accurate."},
 }
-RESULTS = Path("results_tf")
-SAMPLE_DIRS = [Path("samples"), Path("cifake/test")]
+RESULTS = HERE / "results_tf"
+SAMPLE_DIRS = [HERE / "samples", HERE / "cifake" / "test"]
 
 st.set_page_config(page_title="Real or AI?", page_icon="🔍", layout="wide",
                    initial_sidebar_state="expanded")
@@ -207,7 +219,13 @@ def load_metrics(key):
 
 available = {name: info for name, info in MODELS.items() if info["path"].exists()}
 if not available:
-    st.error("No trained model found in models_tf/. Run `python cifake_tensorflow.py --data-dir cifake` first.")
+    found = sorted(p.name for p in (HERE / "models_tf").glob("*")) if (HERE / "models_tf").exists() else None
+    st.error("No trained model found. The app looks for **models_tf/best_cnn.keras** "
+             "(or best_mobilenet.keras) in the same folder as app_tensorflow.py.")
+    st.markdown(f"- App folder: `{HERE}`\n"
+                f"- models_tf folder: {'found, containing ' + str(found) if found is not None else '**missing**'}\n\n"
+                "Train with `python cifake_tensorflow.py --data-dir cifake`, then make sure the "
+                "models_tf folder is uploaded next to app_tensorflow.py.")
     st.stop()
 
 with st.sidebar:
